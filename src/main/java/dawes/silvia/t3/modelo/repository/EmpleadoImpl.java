@@ -59,9 +59,6 @@ public class EmpleadoImpl implements EmpleadoInt {
 
 	@Override
 	public Empleado buscarPorEmail(String emailEmpleado) {
-		System.out.println(emailEmpleado);
-		System.out.println(listaEmpleados);
-
 		Empleado empleado = listaEmpleados.stream()
 				.filter(ele -> ele.getCorreo().equals(emailEmpleado))
 				.findAny()

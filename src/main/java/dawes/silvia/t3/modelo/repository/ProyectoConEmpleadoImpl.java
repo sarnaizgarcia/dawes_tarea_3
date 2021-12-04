@@ -16,7 +16,7 @@ public class ProyectoConEmpleadoImpl implements ProyectoConEmpleadoInt {
 	
 	public ProyectoConEmpleadoImpl() throws ParseException {
 		listaProyectoConEmpleado = new ArrayList<ProyectoConEmpleado>();
-		cargarDatos();
+//		cargarDatos();
 	}
 	
 	@Override

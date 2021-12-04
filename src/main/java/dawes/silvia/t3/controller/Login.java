@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dawes.silvia.t3.modelo.beans.Empleado;
+import dawes.silvia.t3.modelo.beans.Perfile;
 import dawes.silvia.t3.modelo.repository.ClienteInt;
 import dawes.silvia.t3.modelo.repository.EmpleadoInt;
 
@@ -25,22 +27,26 @@ public class Login {
 	}
 	
 	@PostMapping("")
-	public String login(Empleado empleado, HttpSession sesion) {
+	public String login(Empleado empleado, RedirectAttributes attr) {
 		int idEmpleado = empleado.getIdEmpl();
 		String emailEmpleado = empleado.getCorreo();
 		String passwordEmpleado = empleado.getPassword();
+		String redirect = "";
 		
 		Empleado existeEmpleado = iEmpleado.buscarPorEmail(emailEmpleado);
-		
-		System.out.println(existeEmpleado);
-		System.out.println(idEmpleado == existeEmpleado.getIdEmpl());
-		System.out.println(passwordEmpleado.equals(existeEmpleado.getPassword()));
-		
+				
 		if ((existeEmpleado != null) && (idEmpleado == existeEmpleado.getIdEmpl()) && (passwordEmpleado.equals(existeEmpleado.getPassword()))) {
-			sesion.setAttribute("empleado", existeEmpleado);
-			return "redirect:/inicio";
-		} else
-			return "error-login";
+			attr.addFlashAttribute("empleado", existeEmpleado);
+			Perfile perfilEmpleado = existeEmpleado.getPerfile();
+			if (perfilEmpleado.getIdPerfil() == 1)
+				redirect = "redirect:/gestion";
+			else if (perfilEmpleado.getIdPerfil() == 2)
+				redirect = "redirect:/jefe";
+		} else {
+			redirect = "error-login";
+		}
+		
+		return redirect;
 	}
 	
 }
