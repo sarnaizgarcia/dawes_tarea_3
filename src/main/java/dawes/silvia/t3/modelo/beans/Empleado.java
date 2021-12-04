@@ -16,12 +16,13 @@ public class Empleado implements Serializable {
 	private BigDecimal salario;
 	private Departamento departamento;
 	private Perfile perfile;
+	private String password;
 
 	public Empleado() {
 	}
 	
 	public Empleado(int idEmpl, String correo, Date fechaIngreso, Date fechaNacimiento, String nombre,
-			BigDecimal salario, Departamento departamento, Perfile perfile) {
+			BigDecimal salario, Perfile perfile, String password) {
 		super();
 		this.idEmpl = idEmpl;
 		this.correo = correo;
@@ -29,8 +30,8 @@ public class Empleado implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 		this.nombre = nombre;
 		this.salario = salario;
-		this.departamento = departamento;
 		this.perfile = perfile;
+		this.setPassword(password);
 	}
 
 	public int getIdEmpl() {
@@ -164,6 +165,14 @@ public class Empleado implements Serializable {
 		return "Empleado [idEmpl=" + idEmpl + ", correo=" + correo + ", fechaIngreso=" + fechaIngreso
 				+ ", fechaNacimiento=" + fechaNacimiento + ", nombre=" + nombre + ", salario=" + salario
 				+ ", departamento=" + departamento + ", perfile=" + perfile + "]";
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

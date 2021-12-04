@@ -29,15 +29,14 @@ public class EmpleadoImpl implements EmpleadoInt {
 	}
 	
 	private void cargarDatos() {
-		DepartamentoInt iDepartamento = new DepartamentoImpl();
 		PerfileInt iPerfile = new PerfileImpl();
 		
-		Empleado empleado1 = new Empleado(1, "empleado1@proy.com", new Date(), new Date(), "Empleado1", new BigDecimal(40000), iDepartamento.buscarPorId(1), iPerfile.buscarPorId(1));
-		Empleado empleado2 = new Empleado(2, "empleado2@proy.com", new Date(), new Date(), "Empleado2", new BigDecimal(30000), iDepartamento.buscarPorId(1), iPerfile.buscarPorId(1));
-		Empleado empleado3 = new Empleado(3, "empleado3@proy.com", new Date(), new Date(), "Empleado3", new BigDecimal(50000), iDepartamento.buscarPorId(2), iPerfile.buscarPorId(2));
-		Empleado empleado4 = new Empleado(4, "empleado4@proy.com", new Date(), new Date(), "Empleado4", new BigDecimal(45000), iDepartamento.buscarPorId(3), iPerfile.buscarPorId(3));
-		Empleado empleado5 = new Empleado(5, "empleado5@proy.com", new Date(), new Date(), "Empleado5", new BigDecimal(35000), iDepartamento.buscarPorId(4), iPerfile.buscarPorId(4));
-		Empleado empleado6 = new Empleado(6, "empleado6@proy.com", new Date(), new Date(), "Empleado6", new BigDecimal(60000), iDepartamento.buscarPorId(4), iPerfile.buscarPorId(4));
+		Empleado empleado1 = new Empleado(1, "empleado1@proy.com", new Date(), new Date(), "Empleado1", new BigDecimal(40000), iPerfile.buscarPorId(1), "1234");
+		Empleado empleado2 = new Empleado(2, "empleado2@proy.com", new Date(), new Date(), "Empleado2", new BigDecimal(30000), iPerfile.buscarPorId(1), "1234");
+		Empleado empleado3 = new Empleado(3, "empleado3@proy.com", new Date(), new Date(), "Empleado3", new BigDecimal(50000), iPerfile.buscarPorId(2), "1234");
+		Empleado empleado4 = new Empleado(4, "empleado4@proy.com", new Date(), new Date(), "Empleado4", new BigDecimal(45000), iPerfile.buscarPorId(3), "1234");
+		Empleado empleado5 = new Empleado(5, "empleado5@proy.com", new Date(), new Date(), "Empleado5", new BigDecimal(35000), iPerfile.buscarPorId(4), "1234");
+		Empleado empleado6 = new Empleado(6, "empleado6@proy.com", new Date(), new Date(), "Empleado6", new BigDecimal(60000), iPerfile.buscarPorId(4), "1234");
 		
 		listaEmpleados.add(empleado1);
 		listaEmpleados.add(empleado2);
@@ -51,6 +50,20 @@ public class EmpleadoImpl implements EmpleadoInt {
 	public Empleado buscarPorId(int idEmpleado) {
 		Empleado empleado = listaEmpleados.stream()
 				.filter(ele -> ele.getIdEmpl() == idEmpleado)
+				.findAny()
+				.orElse(null);
+		
+		return empleado;
+	}
+
+
+	@Override
+	public Empleado buscarPorEmail(String emailEmpleado) {
+		System.out.println(emailEmpleado);
+		System.out.println(listaEmpleados);
+
+		Empleado empleado = listaEmpleados.stream()
+				.filter(ele -> ele.getCorreo().equals(emailEmpleado))
 				.findAny()
 				.orElse(null);
 		

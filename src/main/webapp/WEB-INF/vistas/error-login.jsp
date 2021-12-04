@@ -14,6 +14,8 @@
 </style>
 </head>
 <body>
-	Inicio
+	<h1>Se ha producido un error en el login</h1>
+	
+	<p>Por favor, vuelve a intentarlo <a href="/login">aquí</a></p>
 </body>
 </html>

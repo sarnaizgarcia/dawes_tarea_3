@@ -17,7 +17,7 @@ public class ProyectoImpl implements ProyectoInt {
 	
 	public ProyectoImpl() throws ParseException {
 		listaProyectos = new ArrayList<Proyecto>();
-		cargarDatos();
+//		cargarDatos();
 	}
 
 	@Override
@@ -52,7 +52,6 @@ public class ProyectoImpl implements ProyectoInt {
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/06/17"),
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
-				iProyConEmp.buscarPorProyecto("Proy1"),
 				iCliente.buscarPorCif("11111111A"), 
 				iEmpleado.buscarPorId(1));
 		
@@ -65,7 +64,6 @@ public class ProyectoImpl implements ProyectoInt {
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/06/17"),
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
-				iProyConEmp.buscarPorProyecto("Proy2"),
 				iCliente.buscarPorCif("22222222B"), 
 				iEmpleado.buscarPorId(3));
 		
@@ -78,7 +76,6 @@ public class ProyectoImpl implements ProyectoInt {
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/06/17"),
 				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
-				iProyConEmp.buscarPorProyecto("Proy3"),
 				iCliente.buscarPorCif("33333333C"), 
 				iEmpleado.buscarPorId(4));
 		

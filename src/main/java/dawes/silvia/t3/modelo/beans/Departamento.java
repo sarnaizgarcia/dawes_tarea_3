@@ -14,12 +14,11 @@ public class Departamento implements Serializable {
 	public Departamento() {
 	}
 	
-	public Departamento(int idDepar, String direccion, String nombre, Empleado jefeDepar) {
+	public Departamento(int idDepar, String direccion, String nombre) {
 		super();
 		this.idDepar = idDepar;
 		this.direccion = direccion;
 		this.nombre = nombre;
-		this.jefeDepar = jefeDepar;
 	}
 
 	public int getIdDepar() {

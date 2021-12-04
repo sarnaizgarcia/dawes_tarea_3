@@ -14,6 +14,10 @@
 </style>
 </head>
 <body>
-	Inicio
+	
+	<h1>Bienvenido a Proyectos</h1>
+	
+	<p>Puedes acceder a la aplicación <a href="/login">aquí</a></p>
+			
 </body>
 </html>

@@ -39,10 +39,10 @@ public class DepartamentoImpl implements DepartamentoInt {
 		
 		EmpleadoInt iEmpleado = new EmpleadoImpl();
 		
-		Departamento departamento1 = new Departamento(1, "Direc dpto 1", "Departamento1", iEmpleado.buscarPorId(1));
-		Departamento departamento2 = new Departamento(2, "Direc dpto 2", "Departamento2", iEmpleado.buscarPorId(2));
-		Departamento departamento3 = new Departamento(3, "Direc dpto 3", "Departamento3", iEmpleado.buscarPorId(4));
-		Departamento departamento4 = new Departamento(4, "Direc dpto 4", "Departamento4", iEmpleado.buscarPorId(5));
+		Departamento departamento1 = new Departamento(1, "Direc dpto 1", "Departamento1");
+		Departamento departamento2 = new Departamento(2, "Direc dpto 2", "Departamento2");
+		Departamento departamento3 = new Departamento(3, "Direc dpto 3", "Departamento3");
+		Departamento departamento4 = new Departamento(4, "Direc dpto 4", "Departamento4");
 
 		listaDepartamentos.add(departamento1);
 		listaDepartamentos.add(departamento2);

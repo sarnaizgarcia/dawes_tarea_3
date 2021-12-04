@@ -6,5 +6,5 @@ public interface EmpleadoInt {
 	
 	int insertarEmpleado(Empleado empleado);
 	Empleado buscarPorId(int idEmpleado);
-
+	Empleado buscarPorEmail(String idEmpleado);
 }
