@@ -31,7 +31,7 @@ public class Empleado implements Serializable {
 		this.nombre = nombre;
 		this.salario = salario;
 		this.perfile = perfile;
-		this.setPassword(password);
+		this.password = password;
 	}
 
 	public int getIdEmpl() {

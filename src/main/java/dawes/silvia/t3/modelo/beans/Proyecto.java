@@ -20,23 +20,21 @@ public class Proyecto implements Serializable {
 	private Date fechaInicio;
 	private BigDecimal ventaPrevisto;
 	private List<ProyectoConEmpleado> proyectoConEmpleados;
-	private Cliente cliente;
+	private Cliente cliente; // alta
 	private Empleado jefeProyecto; // alta
 
 	public Proyecto() {
 	}
 	
-	public Proyecto(String idProyecto, BigDecimal costeReal, BigDecimal costesPrevisto, String descripcion,
-			String estado, Date fechaFinPrevisto, Date fechaFinReal, Date fechaInicio, BigDecimal ventaPrevisto,
+	public Proyecto(String idProyecto, BigDecimal costesPrevisto, String descripcion,
+			String estado, Date fechaFinPrevisto, Date fechaInicio, BigDecimal ventaPrevisto,
 			Cliente cliente, Empleado jefeProyecto) {
 		super();
 		this.idProyecto = idProyecto;
-		this.costeReal = costeReal;
 		this.costesPrevisto = costesPrevisto;
 		this.descripcion = descripcion;
 		this.estado = estado;
 		this.fechaFinPrevisto = fechaFinPrevisto;
-		this.fechaFinReal = fechaFinReal;
 		this.fechaInicio = fechaInicio;
 		this.ventaPrevisto = ventaPrevisto;
 		this.cliente = cliente;

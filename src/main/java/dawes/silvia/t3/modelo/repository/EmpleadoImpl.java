@@ -37,6 +37,7 @@ public class EmpleadoImpl implements EmpleadoInt {
 		Empleado empleado4 = new Empleado(4, "empleado4@proy.com", new Date(), new Date(), "Empleado4", new BigDecimal(45000), iPerfile.buscarPorId(3), "1234");
 		Empleado empleado5 = new Empleado(5, "empleado5@proy.com", new Date(), new Date(), "Empleado5", new BigDecimal(35000), iPerfile.buscarPorId(4), "1234");
 		Empleado empleado6 = new Empleado(6, "empleado6@proy.com", new Date(), new Date(), "Empleado6", new BigDecimal(60000), iPerfile.buscarPorId(4), "1234");
+		Empleado empleado7 = new Empleado(7, "empleado7@proy.com", new Date(), new Date(), "Empleado7", new BigDecimal(50000), iPerfile.buscarPorId(2), "1234");
 		
 		listaEmpleados.add(empleado1);
 		listaEmpleados.add(empleado2);
@@ -44,6 +45,7 @@ public class EmpleadoImpl implements EmpleadoInt {
 		listaEmpleados.add(empleado4);
 		listaEmpleados.add(empleado5);
 		listaEmpleados.add(empleado6);
+		listaEmpleados.add(empleado7);
 	}
 
 	@Override
@@ -65,6 +67,12 @@ public class EmpleadoImpl implements EmpleadoInt {
 				.orElse(null);
 		
 		return empleado;
+	}
+
+
+	@Override
+	public List<Empleado> buscarTodos() {
+		return listaEmpleados;
 	}
 
 }

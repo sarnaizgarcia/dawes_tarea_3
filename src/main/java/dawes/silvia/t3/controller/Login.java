@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dawes.silvia.t3.modelo.beans.Empleado;
 import dawes.silvia.t3.modelo.beans.Perfile;
-import dawes.silvia.t3.modelo.repository.ClienteInt;
 import dawes.silvia.t3.modelo.repository.EmpleadoInt;
 
 @Controller
@@ -27,7 +26,7 @@ public class Login {
 	}
 	
 	@PostMapping("")
-	public String login(Empleado empleado, RedirectAttributes attr) {
+	public String login(Empleado empleado, RedirectAttributes attr, HttpSession sesion) {
 		int idEmpleado = empleado.getIdEmpl();
 		String emailEmpleado = empleado.getCorreo();
 		String passwordEmpleado = empleado.getPassword();
@@ -38,6 +37,7 @@ public class Login {
 		if ((existeEmpleado != null) && (idEmpleado == existeEmpleado.getIdEmpl()) && (passwordEmpleado.equals(existeEmpleado.getPassword()))) {
 			attr.addFlashAttribute("empleado", existeEmpleado);
 			Perfile perfilEmpleado = existeEmpleado.getPerfile();
+			sesion.setAttribute("empleado", existeEmpleado);
 			if (perfilEmpleado.getIdPerfil() == 1)
 				redirect = "redirect:/gestion";
 			else if (perfilEmpleado.getIdPerfil() == 2)
