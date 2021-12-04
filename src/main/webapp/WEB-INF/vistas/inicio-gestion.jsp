@@ -73,7 +73,7 @@
 				<td>${ele.getFechaFinReal() }</td>
 				<td>
 					<c:if test="${!ele.getEstado().equals('Finalizado') }">
-						<a href="/gestion/terminarProyecto">Finalizar</a>
+						<a href="/gestion/terminarProyecto/${ele.getIdProyecto() }">Finalizar</a>
 					</c:if>
 				</td>
 			</tr>

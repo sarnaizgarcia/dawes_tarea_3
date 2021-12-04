@@ -47,8 +47,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1000000), 
 				"Descripción proyecto1", 
 				"Finalizado", 
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("11111111A"), 
 				iEmpleado.buscarPorId(1));
@@ -57,8 +57,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1200000), 
 				"Descripción proyecto2", 
 				"Activo", 
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("22222222B"), 
 				iEmpleado.buscarPorId(3));
@@ -67,8 +67,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1000000), 
 				"Descripción proyecto3", 
 				"Activo", 
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("33333333C"), 
 				iEmpleado.buscarPorId(4));
@@ -77,8 +77,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1000000), 
 				"Descripción proyecto4", 
 				"Finalizado", 
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
-				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
+				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("11111111A"), 
 				iEmpleado.buscarPorId(1));
