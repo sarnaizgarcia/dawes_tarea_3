@@ -13,20 +13,20 @@ public class Producto implements Serializable {
 	private String descripcionLarga;
 	private BigDecimal precioUnitario;
 	private int stock;
-	private List<ProyectoConProducto> proyectoConProductos;
+//	private List<ProyectoConProducto> proyectoConProductos;
 
 	public Producto() {
 	}
 	
 	public Producto(int idProducto, String descripcionBreve, String descripcionLarga, BigDecimal precioUnitario,
-			int stock, List<ProyectoConProducto> proyectoConProductos) {
+			int stock) {
 		super();
 		this.idProducto = idProducto;
 		this.descripcionBreve = descripcionBreve;
 		this.descripcionLarga = descripcionLarga;
 		this.precioUnitario = precioUnitario;
 		this.stock = stock;
-		this.proyectoConProductos = proyectoConProductos;
+//		this.proyectoConProductos = proyectoConProductos;
 	}
 	
 	public int getIdProducto() {
@@ -69,27 +69,27 @@ public class Producto implements Serializable {
 		this.stock = stock;
 	}
 
-	public List<ProyectoConProducto> getProyectoConProductos() {
-		return this.proyectoConProductos;
-	}
+//	public List<ProyectoConProducto> getProyectoConProductos() {
+//		return this.proyectoConProductos;
+//	}
+//
+//	public void setProyectoConProductos(List<ProyectoConProducto> proyectoConProductos) {
+//		this.proyectoConProductos = proyectoConProductos;
+//	}
 
-	public void setProyectoConProductos(List<ProyectoConProducto> proyectoConProductos) {
-		this.proyectoConProductos = proyectoConProductos;
-	}
-
-	public ProyectoConProducto addProyectoConProducto(ProyectoConProducto proyectoConProducto) {
-		getProyectoConProductos().add(proyectoConProducto);
-		proyectoConProducto.setProducto(this);
-
-		return proyectoConProducto;
-	}
-
-	public ProyectoConProducto removeProyectoConProducto(ProyectoConProducto proyectoConProducto) {
-		getProyectoConProductos().remove(proyectoConProducto);
-		proyectoConProducto.setProducto(null);
-
-		return proyectoConProducto;
-	}
+//	public ProyectoConProducto addProyectoConProducto(ProyectoConProducto proyectoConProducto) {
+//		getProyectoConProductos().add(proyectoConProducto);
+//		proyectoConProducto.setProducto(this);
+//
+//		return proyectoConProducto;
+//	}
+//
+//	public ProyectoConProducto removeProyectoConProducto(ProyectoConProducto proyectoConProducto) {
+//		getProyectoConProductos().remove(proyectoConProducto);
+//		proyectoConProducto.setProducto(null);
+//
+//		return proyectoConProducto;
+//	}
 
 	@Override
 	public int hashCode() {
@@ -99,7 +99,7 @@ public class Producto implements Serializable {
 		result = prime * result + ((descripcionLarga == null) ? 0 : descripcionLarga.hashCode());
 		result = prime * result + idProducto;
 		result = prime * result + ((precioUnitario == null) ? 0 : precioUnitario.hashCode());
-		result = prime * result + ((proyectoConProductos == null) ? 0 : proyectoConProductos.hashCode());
+//		result = prime * result + ((proyectoConProductos == null) ? 0 : proyectoConProductos.hashCode());
 		result = prime * result + stock;
 		return result;
 	}
@@ -128,11 +128,11 @@ public class Producto implements Serializable {
 				return false;
 		} else if (!precioUnitario.equals(other.precioUnitario))
 			return false;
-		if (proyectoConProductos == null) {
-			if (other.proyectoConProductos != null)
-				return false;
-		} else if (!proyectoConProductos.equals(other.proyectoConProductos))
-			return false;
+//		if (proyectoConProductos == null) {
+//			if (other.proyectoConProductos != null)
+//				return false;
+//		} else if (!proyectoConProductos.equals(other.proyectoConProductos))
+//			return false;
 		if (stock != other.stock)
 			return false;
 		return true;
@@ -141,8 +141,7 @@ public class Producto implements Serializable {
 	@Override
 	public String toString() {
 		return "Producto [idProducto=" + idProducto + ", descripcionBreve=" + descripcionBreve + ", descripcionLarga="
-				+ descripcionLarga + ", precioUnitario=" + precioUnitario + ", stock=" + stock
-				+ ", proyectoConProductos=" + proyectoConProductos + "]";
+				+ descripcionLarga + ", precioUnitario=" + precioUnitario + ", stock=" + stock + "]";
 	}
 
 }

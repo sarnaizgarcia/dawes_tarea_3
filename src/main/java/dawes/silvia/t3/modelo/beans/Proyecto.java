@@ -2,6 +2,7 @@ package dawes.silvia.t3.modelo.beans;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,18 +10,18 @@ public class Proyecto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	private String idProyecto;
+	private String idProyecto; // alta
 	private BigDecimal costeReal;
 	private BigDecimal costesPrevisto;
-	private String descripcion;
-	private String estado;
+	private String descripcion; // alta
+	private String estado; // alta
 	private Date fechaFinPrevisto;
 	private Date fechaFinReal;
 	private Date fechaInicio;
 	private BigDecimal ventaPrevisto;
 	private List<ProyectoConEmpleado> proyectoConEmpleados;
 	private Cliente cliente;
-	private Empleado jefeProyecto;
+	private Empleado jefeProyecto; // alta
 
 	public Proyecto() {
 	}
@@ -124,6 +125,8 @@ public class Proyecto implements Serializable {
 	}
 
 	public ProyectoConEmpleado addProyectoConEmpleado(ProyectoConEmpleado proyectoConEmpleado) {
+		if(proyectoConEmpleados == null)
+			proyectoConEmpleados = new ArrayList<ProyectoConEmpleado>();
 		getProyectoConEmpleados().add(proyectoConEmpleado);
 		proyectoConEmpleado.setProyecto(this);
 
@@ -131,6 +134,8 @@ public class Proyecto implements Serializable {
 	}
 
 	public ProyectoConEmpleado removeProyectoConEmpleado(ProyectoConEmpleado proyectoConEmpleado) {
+		if(proyectoConEmpleados == null)
+			proyectoConEmpleados = new ArrayList<ProyectoConEmpleado>();
 		getProyectoConEmpleados().remove(proyectoConEmpleado);
 		proyectoConEmpleado.setProyecto(null);
 
