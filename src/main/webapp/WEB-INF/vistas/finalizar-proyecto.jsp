@@ -43,11 +43,14 @@
 
 	<div class="titulo">
 		<h1>Finalizar Proyecto ${proyectoAFinalizar.getIdProyecto() }</h1>
+		
+		${proyectoAFinalizar }
 
 		<p>Bienvenid@, ${empleado.getNombre() }</p>
 	</div>
 		
-	<form action="terminarProyecto" method="post">
+	<form action="/gestion/terminarProyecto/${proyectoAFinalizar.getIdProyecto() }" method="post">
+	
 		<p>
 			<p>Coste real</p>
 			<input type="text" name="costeReal" >
