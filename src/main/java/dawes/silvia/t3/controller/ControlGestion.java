@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import dawes.silvia.t3.modelo.beans.Cliente;
 import dawes.silvia.t3.modelo.beans.Empleado;
 import dawes.silvia.t3.modelo.beans.Proyecto;
 import dawes.silvia.t3.modelo.repository.ClienteInt;
@@ -52,13 +53,16 @@ public class ControlGestion {
 	@PostMapping("/altaProyecto")
 	public String altaProyecto(Model model, Proyecto nuevoProyecto) {
 		Proyecto proyecto = new Proyecto();
+		Cliente cliente = listaClientes.buscarPorCif(nuevoProyecto.getCliente().getCif());
+		Empleado jefeProyecto = listaEmpleados.buscarPorId(nuevoProyecto.getJefeProyecto().getIdEmpl());
+
 		proyecto.setIdProyecto(nuevoProyecto.getIdProyecto());
 		proyecto.setDescripcion(nuevoProyecto.getDescripcion());
-		proyecto.setCliente(nuevoProyecto.getCliente());
 		proyecto.setEstado(nuevoProyecto.getEstado());
-		proyecto.setJefeProyecto(nuevoProyecto.getJefeProyecto());
+		proyecto.setCliente(cliente);
+		proyecto.setJefeProyecto(jefeProyecto);
+				
 		listaProyectos.insertarProyecto(proyecto);
-		System.out.println(proyecto);
 
 		return "redirect:/gestion";
 	}

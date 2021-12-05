@@ -57,26 +57,26 @@
 			<input type="text" name="descripcion" required>
 		</p>
 		<p>
-			<p>Cliente</p>			
-			<select name="cliente.getCif()">
+			<p>Cliente</p>
+			<select name="cliente.cif">
 				<c:forEach var="ele" items="${listaClientes }">
-					<option value="${ele }">${ele.getNombre() }</option>
+					<option value="${ele.getCif() }">${ele.getNombre() }</option>
 				</c:forEach>
 			</select>
 		</p>
 		<p>
 			<p>Estado</p>
 			<select name="estado">
-				<option value="activo">Activo</option>
-				<option value="finalizado">Finalizado</option>
+				<option value="Activo">Activo</option>
+				<option value="Finalizado">Finalizado</option>
 			</select>
 		</p>
 		<p>
-			<p>Jefe de proyecto</p>
-			<select name="jefeProyecto.getIdEmpl()">
+			<p>Jefe de Proyecto</p>
+			<select name="jefeProyecto.idEmpl">
 				<c:forEach var="ele" items="${listaEmpleados }">
 					<c:if test="${ele.getPerfile().getNombre().equals('Jefe de Proyecto') }">
-						<option value="${ele }">${ele.getNombre() }</option>
+						<option value="${ele.getIdEmpl() }">${ele.getNombre() }</option>
 					</c:if>
 				</c:forEach>
 			</select>
