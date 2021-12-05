@@ -29,7 +29,7 @@ import dawes.silvia.t3.modelo.repository.ProyectoInt;
 @Controller
 @RequestMapping("/gestion")
 public class ControlGestion {
-	
+	// Pasamos la referencia de implementaciones a variables.
 	@Autowired
 	private ProyectoInt listaProyectos;
 	@Autowired
@@ -37,12 +37,21 @@ public class ControlGestion {
 	@Autowired
 	private EmpleadoInt listaEmpleados;
 	
+	/**
+	 * Se recoge el listado de los proyectos en un atributo para mostrarlos en la vista. 
+	 * @param model
+	 */
 	@GetMapping("")
 	public String inicioGestion(Model model) {
 		model.addAttribute("listaProyectos", listaProyectos.buscarTodos());
 		return "inicio-gestion";
 	}
 	
+	/**
+	 * Se recogen los listados de clientes y empleados para utilizarlos en la vista
+	 * en la que se da dan de alta los proyectos.
+	 * @param model
+	 */
 	@GetMapping("/altaProyecto")
 	public String vistaAltaProyecto(Model model) {
 		model.addAttribute("listaClientes", listaClientes.buscarTodos());
@@ -50,19 +59,29 @@ public class ControlGestion {
 		return "alta-proyecto";
 	}
 	
+	/**
+	 * Se crea un nuevo poyecto y buscamos el cliente y jefe de proyecto creado con el formulario.
+	 * Se utilizan los atributos de ese proyecto para 
+	 * @param model
+	 * @param nuevoProyecto
+	 */
 	@PostMapping("/altaProyecto")
 	public String altaProyecto(Model model, Proyecto nuevoProyecto) {
-		Proyecto proyecto = new Proyecto();
+//		Proyecto proyecto = new Proyecto();
 		Cliente cliente = listaClientes.buscarPorCif(nuevoProyecto.getCliente().getCif());
 		Empleado jefeProyecto = listaEmpleados.buscarPorId(nuevoProyecto.getJefeProyecto().getIdEmpl());
+//
+//		proyecto.setIdProyecto(nuevoProyecto.getIdProyecto());
+//		proyecto.setDescripcion(nuevoProyecto.getDescripcion());
+//		proyecto.setEstado(nuevoProyecto.getEstado());
+//		proyecto.setCliente(cliente);
+//		proyecto.setJefeProyecto(jefeProyecto);
 
-		proyecto.setIdProyecto(nuevoProyecto.getIdProyecto());
-		proyecto.setDescripcion(nuevoProyecto.getDescripcion());
-		proyecto.setEstado(nuevoProyecto.getEstado());
-		proyecto.setCliente(cliente);
-		proyecto.setJefeProyecto(jefeProyecto);
-				
-		listaProyectos.insertarProyecto(proyecto);
+		
+		nuevoProyecto.setCliente(cliente);
+		nuevoProyecto.setJefeProyecto(jefeProyecto);
+
+		listaProyectos.insertarProyecto(nuevoProyecto);
 
 		return "redirect:/gestion";
 	}
