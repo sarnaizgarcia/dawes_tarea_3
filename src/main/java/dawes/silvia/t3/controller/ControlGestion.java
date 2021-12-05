@@ -29,7 +29,7 @@ import dawes.silvia.t3.modelo.repository.ProyectoInt;
 @Controller
 @RequestMapping("/gestion")
 public class ControlGestion {
-	// Pasamos la referencia de implementaciones a variables.
+	// Se pasan la referencia de las implementaciones del modelo a variables.
 	@Autowired
 	private ProyectoInt listaProyectos;
 	@Autowired
@@ -60,24 +60,17 @@ public class ControlGestion {
 	}
 	
 	/**
-	 * Se crea un nuevo poyecto y buscamos el cliente y jefe de proyecto creado con el formulario.
-	 * Se utilizan los atributos de ese proyecto para 
+	 * Se crea un nuevo poyecto.
+	 * Con los parámetos del formulario, se buscan el cliente y el jefe de proyecto.
+	 * Se añaden esos dos atributos al nuevo proyecto y se incluye en la lista de proyectos.
 	 * @param model
 	 * @param nuevoProyecto
 	 */
 	@PostMapping("/altaProyecto")
 	public String altaProyecto(Model model, Proyecto nuevoProyecto) {
-//		Proyecto proyecto = new Proyecto();
 		Cliente cliente = listaClientes.buscarPorCif(nuevoProyecto.getCliente().getCif());
 		Empleado jefeProyecto = listaEmpleados.buscarPorId(nuevoProyecto.getJefeProyecto().getIdEmpl());
-//
-//		proyecto.setIdProyecto(nuevoProyecto.getIdProyecto());
-//		proyecto.setDescripcion(nuevoProyecto.getDescripcion());
-//		proyecto.setEstado(nuevoProyecto.getEstado());
-//		proyecto.setCliente(cliente);
-//		proyecto.setJefeProyecto(jefeProyecto);
 
-		
 		nuevoProyecto.setCliente(cliente);
 		nuevoProyecto.setJefeProyecto(jefeProyecto);
 
@@ -86,6 +79,11 @@ public class ControlGestion {
 		return "redirect:/gestion";
 	}
 
+	/**
+	 * Se busca el proyecto que se quiere finalizar y se recoge en un atributo.
+	 * @param idProyecto
+	 * @param model
+	 */
 	@GetMapping("/terminarProyecto/{id}")
 	public String vistaFinalizarProyecto(@PathVariable("id") String idProyecto, Model model) {
 		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);
@@ -93,6 +91,14 @@ public class ControlGestion {
 		return "finalizar-proyecto";
 	}
 	
+	/**
+	 * Con el parámeto del id del proyecto, se busca el proyecto que se quiere finalizar.
+	 * Se pone el estado del proyecto a finalizado, se asignan los valores de la fecha de fin real
+	 * y el coste real.
+	 * @param model
+	 * @param proyecto
+	 * @param idProyecto
+	 */
 	@PostMapping("/terminarProyecto/{id}")
 	public String terminarProyecto(Model model, Proyecto proyecto, @PathVariable("id") String idProyecto) {
 		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);

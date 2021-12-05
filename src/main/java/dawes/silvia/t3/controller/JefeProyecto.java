@@ -19,7 +19,7 @@ import dawes.silvia.t3.modelo.repository.ProyectoInt;
 @Controller
 @RequestMapping("/jefe")
 public class JefeProyecto {
-	
+	// Se pasan la referencia de las implementaciones del modelo a variables.
 	@Autowired
 	ProyectoInt listaProyectos;
 	@Autowired
@@ -27,20 +27,33 @@ public class JefeProyecto {
 	@Autowired
 	ProyectoConProductoInt listaProyConProducto;
 
+	/**
+	 * Se recogen todos los proyectos para mostrarlos en la vista.
+	 * @param model
+	 */
 	@GetMapping("")
 	public String inicioJefe(Model model) {
 		model.addAttribute("listaProyectos", listaProyectos.buscarTodos());
 		return "inicio-jefe";
 	}
 	
+	/**
+	 * Con el parámetro del id, se busca el proyecto del que se quieren saber los detalles
+	 * y se buscan sus empleados y productos.
+	 * Se añaden esos tres elemento como atributos para mostrarlos en la vista.
+	 * @param idProyecto
+	 * @param model
+	 */
 	@GetMapping("/verDetalle/{id}")
 	public String verDetalle(@PathVariable("id") String idProyecto, Model model) {
 		Proyecto proyectoEnDetalle = listaProyectos.buscarPorId(idProyecto);
-		model.addAttribute("proyectoAVer", proyectoEnDetalle);
 		List<ProyectoConEmpleado> empleadosProyecto= listaProyConEmpleado.buscarPorProyecto(idProyecto);
-		model.addAttribute("empleadosProyecto", empleadosProyecto);
 		List<ProyectoConProducto> productosProyecto = listaProyConProducto.buscarPorProyecto(idProyecto);
+		
+		model.addAttribute("proyectoAVer", proyectoEnDetalle);
+		model.addAttribute("empleadosProyecto", empleadosProyecto);
 		model.addAttribute("productosProyecto", productosProyecto);
+		
 		return "detalle-proyecto";
 	}
 }

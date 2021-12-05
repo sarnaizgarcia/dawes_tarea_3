@@ -17,6 +17,10 @@ import dawes.silvia.t3.modelo.repository.EmpleadoInt;
 @RequestMapping("/logout")
 public class Logout {
 	
+	/**
+	 * Se elimina el usuario de la sesión y se invalida la sesión. 
+	 * @param sesion
+	 */
 	@GetMapping("")
 	public String vistaLogin(HttpSession sesion) {
 		sesion.removeAttribute("usuario");
