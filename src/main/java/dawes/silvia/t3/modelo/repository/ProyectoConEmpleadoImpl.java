@@ -117,9 +117,7 @@ public class ProyectoConEmpleadoImpl implements ProyectoConEmpleadoInt {
 	@Override
 	public List<ProyectoConEmpleado> buscarPorProyecto(String idProyecto) {
 		List<ProyectoConEmpleado> empleadosEnProyecto = new ArrayList<ProyectoConEmpleado>();
-		System.out.println(listaProyectoConEmpleado);
 		listaProyectoConEmpleado.forEach(ele -> {
-			System.out.println(ele.getProyecto());
 			if (ele.getProyecto().getIdProyecto().equals(idProyecto))
 				empleadosEnProyecto.add(ele);
 		});

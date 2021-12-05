@@ -97,7 +97,22 @@
 	
 	<h3>Productos asignados</h3>
 	
-	
+	<table>
+		<tr>
+			<td>Nombre producto</td>
+			<td>Cantidad</td>
+			<td>Precio</td>
+		</tr>
+		<c:forEach var="ele" items="${productosProyecto }">
+			<tr>
+				<td>${ele.getProducto().getDescripcionBreve() }</td>
+				<td>${ele.getCantidad() }</td>
+				<td>${ele.getPrecioAsignado() }</td>
+				
+			</tr>
+		</c:forEach>		
+	</table>
+		
 	<div class="opcion">
 		<div>
 			Volver al <a href="/jefe">inicio</a>

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import dawes.silvia.t3.modelo.beans.Proyecto;
 import dawes.silvia.t3.modelo.beans.ProyectoConEmpleado;
+import dawes.silvia.t3.modelo.beans.ProyectoConProducto;
 import dawes.silvia.t3.modelo.repository.ProyectoConEmpleadoInt;
+import dawes.silvia.t3.modelo.repository.ProyectoConProductoInt;
 import dawes.silvia.t3.modelo.repository.ProyectoInt;
 
 @Controller
@@ -22,6 +24,8 @@ public class JefeProyecto {
 	ProyectoInt listaProyectos;
 	@Autowired
 	ProyectoConEmpleadoInt listaProyConEmpleado;
+	@Autowired
+	ProyectoConProductoInt listaProyConProducto;
 
 	@GetMapping("")
 	public String inicioJefe(Model model) {
@@ -35,6 +39,8 @@ public class JefeProyecto {
 		model.addAttribute("proyectoAVer", proyectoEnDetalle);
 		List<ProyectoConEmpleado> empleadosProyecto= listaProyConEmpleado.buscarPorProyecto(idProyecto);
 		model.addAttribute("empleadosProyecto", empleadosProyecto);
+		List<ProyectoConProducto> productosProyecto = listaProyConProducto.buscarPorProyecto(idProyecto);
+		model.addAttribute("productosProyecto", productosProyecto);
 		return "detalle-proyecto";
 	}
 }
