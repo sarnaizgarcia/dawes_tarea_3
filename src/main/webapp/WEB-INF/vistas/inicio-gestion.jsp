@@ -31,6 +31,16 @@
 		margin: 15px;
 		height: 30px;
 	}
+	
+	.cierre {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: solid #CB3234;
+		width: 218px;
+		margin: 15px;
+		height: 30px;
+	}
 </style>
 </head>
 <body>
@@ -83,5 +93,6 @@
 	</table>
 	
 	<div class="opcion"><a href="/gestion/altaProyecto">Alta Proyecto</a></div>
+	<div class="cierre"><a href="/logout">Cerrar sesión</a></div>
 </body>
 </html>
