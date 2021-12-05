@@ -35,7 +35,7 @@
 </style>
 </head>
 <body>
-
+<!-- En esta vista se mostrarán en tres tablas los detalles del proyecto -->
 	<h1>Detalle del Proyecto ${proyectoAVer.getIdProyecto() }</h1>
 
 	<p>Bienvenid@, ${empleado.getNombre() }</p>

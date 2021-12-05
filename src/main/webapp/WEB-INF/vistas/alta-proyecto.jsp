@@ -46,7 +46,8 @@
 
 		<p>Bienvenid@, ${empleado.getNombre() }</p>
 	</div>
-		
+<!-- Se hace la llamada a la acción para crear el proyecto -->
+<!-- Cada valor introducido en el formulario, se corresponderá con una de las propiedades del proyecto -->
 	<form action="/gestion/altaProyecto" method="post">
 		<p>
 			<p>Id del Proyecto</p>
