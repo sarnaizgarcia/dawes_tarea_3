@@ -47,23 +47,23 @@
 		<p>Bienvenid@, ${empleado.getNombre() }</p>
 	</div>
 		
-	<form action="altaProyecto" method="post">
+	<form action="/gestion/altaProyecto" method="post">
 		<p>
 			<p>Id del Proyecto</p>
-			<input type="text" name="idProyecto" >
+			<input type="text" name="idProyecto" required>
 		</p>
 		<p>
 			<p>Descripción</p>
-			<input type="text" name="descripcion" >
+			<input type="text" name="descripcion" required>
 		</p>
-<!-- 		<p> -->
-<!-- 			<p>Cliente</p> -->
-<!-- 			<select name="cliente"> -->
-<%-- 				<c:forEach var="ele" items="${listaClientes }"> --%>
-<%-- 					<option value="${ele }">${ele.getNombre() }</option> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</select> -->
-<!-- 		</p> -->
+		<p>
+			<p>Cliente</p>			
+			<select name="cliente.getCif()">
+				<c:forEach var="ele" items="${listaClientes }">
+					<option value="${ele }">${ele.getNombre() }</option>
+				</c:forEach>
+			</select>
+		</p>
 		<p>
 			<p>Estado</p>
 			<select name="estado">
@@ -71,16 +71,16 @@
 				<option value="finalizado">Finalizado</option>
 			</select>
 		</p>
-<!-- 		<p> -->
-<!-- 			<p>Jefe de proyecto</p> -->
-<!-- 			<select name="jefeProyecto"> -->
-<%-- 				<c:forEach var="ele" items="${listaEmpleados }"> --%>
-<%-- 					<c:if test="${ele.getPerfile().getNombre().equals('Jefe de Proyecto') }"> --%>
-<%-- 						<option value="${ele }">${ele.getNombre() }</option> --%>
-<%-- 					</c:if> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</select> -->
-<!-- 		</p> -->
+		<p>
+			<p>Jefe de proyecto</p>
+			<select name="jefeProyecto.getIdEmpl()">
+				<c:forEach var="ele" items="${listaEmpleados }">
+					<c:if test="${ele.getPerfile().getNombre().equals('Jefe de Proyecto') }">
+						<option value="${ele }">${ele.getNombre() }</option>
+					</c:if>
+				</c:forEach>
+			</select>
+		</p>
 		<p><input type="submit" value="Crear proyecto" id="boton"></p>
 	</form>		
 

@@ -70,7 +70,9 @@
 				<td>${ele.getVentaPrevisto() }</td>
 				<td>${ele.getEstado() }</td>
 				<td>${ele.getCosteReal() }</td>
-				<td>${ele.getFechaFinReal() }</td>
+				<td>
+					<fmt:formatDate pattern="dd-MM-yyyy" value="${ele.getFechaFinReal() }" />
+				</td>
 				<td>
 					<c:if test="${!ele.getEstado().equals('Finalizado') }">
 						<a href="/gestion/terminarProyecto/${ele.getIdProyecto() }">Finalizar</a>

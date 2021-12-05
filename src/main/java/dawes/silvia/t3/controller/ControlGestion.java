@@ -51,8 +51,15 @@ public class ControlGestion {
 	
 	@PostMapping("/altaProyecto")
 	public String altaProyecto(Model model, Proyecto nuevoProyecto) {
-		nuevoProyecto.getJefeProyecto();
-		listaProyectos.insertarProyecto(nuevoProyecto);
+		Proyecto proyecto = new Proyecto();
+		proyecto.setIdProyecto(nuevoProyecto.getIdProyecto());
+		proyecto.setDescripcion(nuevoProyecto.getDescripcion());
+		proyecto.setCliente(nuevoProyecto.getCliente());
+		proyecto.setEstado(nuevoProyecto.getEstado());
+		proyecto.setJefeProyecto(nuevoProyecto.getJefeProyecto());
+		listaProyectos.insertarProyecto(proyecto);
+		System.out.println(proyecto);
+
 		return "redirect:/gestion";
 	}
 
@@ -63,19 +70,12 @@ public class ControlGestion {
 		return "finalizar-proyecto";
 	}
 	
-//	@InitBinder
-//	public void initBinder(WebDataBinder webDataBinder) {
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//		webDataBinder.registerCustomEditor(Date.class, 
-//				new CustomDateEditor(sdf, false));
-//	}
-	
 	@PostMapping("/terminarProyecto/{id}")
 	public String terminarProyecto(Model model, Proyecto proyecto, @PathVariable("id") String idProyecto) {
-		System.out.println(proyecto.getFechaFinReal());
 		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);
 		proyectoAFinalizar.setEstado("Finalizado");
-		model.addAttribute("proyectos", listaProyectos);
+		proyectoAFinalizar.setFechaFinReal(proyecto.getFechaFinReal());
+		proyectoAFinalizar.setCosteReal(proyecto.getCosteReal());
 
 		return "redirect:/gestion";
 	}

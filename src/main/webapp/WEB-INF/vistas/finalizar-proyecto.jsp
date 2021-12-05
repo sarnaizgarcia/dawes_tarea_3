@@ -51,11 +51,11 @@
 	
 		<p>
 			<p>Coste real</p>
-			<input type="text" name="costeReal" >
+			<input type="text" name="costeReal" required>
 		</p>
 		<p>
 			<p>Fecha de fin</p>
-			<input type="date" name="fechaFinReal">
+			<input type="date" name="fechaFinReal" required>
 		</p>
 		<p><input type="submit" value="Finalizar" id="boton"></p>
 	</form>		
