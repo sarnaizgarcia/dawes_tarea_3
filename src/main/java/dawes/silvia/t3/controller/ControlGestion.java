@@ -72,14 +72,11 @@ public class ControlGestion {
 	
 	@PostMapping("/terminarProyecto/{id}")
 	public String terminarProyecto(Model model, Proyecto proyecto, @PathVariable("id") String idProyecto) {
+		System.out.println(proyecto.getFechaFinReal());
 		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);
 		proyectoAFinalizar.setEstado("Finalizado");
 		model.addAttribute("proyectos", listaProyectos);
-		System.out.println(proyectoAFinalizar);
-//		Proyecto proyectoAFinalizar = model.getAttribute("proyectoAFinalizar");
-//		String id = proyectoAFinalizar.getIdProyecto();
-//		System.out.println(id);
-//
+
 		return "redirect:/gestion";
 	}
 	

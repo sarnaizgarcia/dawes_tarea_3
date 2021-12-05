@@ -44,8 +44,6 @@
 	<div class="titulo">
 		<h1>Finalizar Proyecto ${proyectoAFinalizar.getIdProyecto() }</h1>
 		
-		${proyectoAFinalizar }
-
 		<p>Bienvenid@, ${empleado.getNombre() }</p>
 	</div>
 		
@@ -55,10 +53,10 @@
 			<p>Coste real</p>
 			<input type="text" name="costeReal" >
 		</p>
-<!-- 		<p> -->
-<!-- 			<p>Fecha de fin</p> -->
-<!-- 			<input type="date" name="fechaFinReal"> -->
-<!-- 		</p> -->
+		<p>
+			<p>Fecha de fin</p>
+			<input type="date" name="fechaFinReal">
+		</p>
 		<p><input type="submit" value="Finalizar" id="boton"></p>
 	</form>		
 	

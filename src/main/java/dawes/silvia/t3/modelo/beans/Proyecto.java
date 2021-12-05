@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Proyecto implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -16,6 +18,7 @@ public class Proyecto implements Serializable {
 	private String descripcion; // alta
 	private String estado; // alta
 	private Date fechaFinPrevisto;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaFinReal;
 	private Date fechaInicio;
 	private BigDecimal ventaPrevisto;
