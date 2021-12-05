@@ -38,6 +38,11 @@ public class EmpleadoImpl implements EmpleadoInt {
 		Empleado empleado5 = new Empleado(5, "empleado5@proy.com", new Date(), new Date(), "Empleado5", new BigDecimal(35000), iPerfile.buscarPorId(4), "1234");
 		Empleado empleado6 = new Empleado(6, "empleado6@proy.com", new Date(), new Date(), "Empleado6", new BigDecimal(60000), iPerfile.buscarPorId(4), "1234");
 		Empleado empleado7 = new Empleado(7, "empleado7@proy.com", new Date(), new Date(), "Empleado7", new BigDecimal(50000), iPerfile.buscarPorId(2), "1234");
+		Empleado empleado8 = new Empleado(8, "empleado8@proy.com", new Date(), new Date(), "Empleado8", new BigDecimal(50000), iPerfile.buscarPorId(3), "1234");
+		Empleado empleado9 = new Empleado(9, "empleado9@proy.com", new Date(), new Date(), "Empleado9", new BigDecimal(50000), iPerfile.buscarPorId(3), "1234");
+		Empleado empleado10 = new Empleado(10, "empleado10@proy.com", new Date(), new Date(), "Empleado10", new BigDecimal(50000), iPerfile.buscarPorId(3), "1234");
+		Empleado empleado11 = new Empleado(11, "empleado11@proy.com", new Date(), new Date(), "Empleado11", new BigDecimal(50000), iPerfile.buscarPorId(3), "1234");
+		Empleado empleado12 = new Empleado(12, "empleado12@proy.com", new Date(), new Date(), "Empleado12", new BigDecimal(50000), iPerfile.buscarPorId(3), "1234");
 		
 		listaEmpleados.add(empleado1);
 		listaEmpleados.add(empleado2);
@@ -46,8 +51,13 @@ public class EmpleadoImpl implements EmpleadoInt {
 		listaEmpleados.add(empleado5);
 		listaEmpleados.add(empleado6);
 		listaEmpleados.add(empleado7);
+		listaEmpleados.add(empleado8);
+		listaEmpleados.add(empleado9);
+		listaEmpleados.add(empleado10);
+		listaEmpleados.add(empleado11);
+		listaEmpleados.add(empleado12);
 	}
-
+	
 	@Override
 	public Empleado buscarPorId(int idEmpleado) {
 		Empleado empleado = listaEmpleados.stream()

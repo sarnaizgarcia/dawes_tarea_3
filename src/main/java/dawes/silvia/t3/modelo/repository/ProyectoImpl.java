@@ -41,14 +41,13 @@ public class ProyectoImpl implements ProyectoInt {
 	private void cargarDatos() throws ParseException {
 		ClienteInt iCliente = new ClienteImpl();
 		EmpleadoInt iEmpleado = new EmpleadoImpl();
-		ProyectoConEmpleadoInt iProyConEmp = new ProyectoConEmpleadoImpl();
 		
 		Proyecto proyecto1 = new Proyecto("Proy1", 
 				new BigDecimal(1000000), 
 				"Descripción proyecto1", 
 				"Finalizado", 
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("11111111A"), 
 				iEmpleado.buscarPorId(1));
@@ -57,8 +56,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1200000), 
 				"Descripción proyecto2", 
 				"Activo", 
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("22222222B"), 
 				iEmpleado.buscarPorId(3));
@@ -67,8 +66,8 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1000000), 
 				"Descripción proyecto3", 
 				"Activo", 
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("33333333C"), 
 				iEmpleado.buscarPorId(4));
@@ -77,17 +76,49 @@ public class ProyectoImpl implements ProyectoInt {
 				new BigDecimal(1000000), 
 				"Descripción proyecto4", 
 				"Finalizado", 
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-05-17"),
-				new SimpleDateFormat("yyyy-MM-dd").parse("2021-01-17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
 				new BigDecimal(2500000), 
 				iCliente.buscarPorCif("11111111A"), 
 				iEmpleado.buscarPorId(1));
-
+		
+		Proyecto proyecto5 = new Proyecto("Proy5", 
+				new BigDecimal(1200000), 
+				"Descripción proyecto5", 
+				"Activo", 
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new BigDecimal(2500000), 
+				iCliente.buscarPorCif("22222222B"), 
+				iEmpleado.buscarPorId(3));
+		
+		Proyecto proyecto6 = new Proyecto("Proy6", 
+				new BigDecimal(1200000), 
+				"Descripción proyecto6", 
+				"Activo", 
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new BigDecimal(2500000), 
+				iCliente.buscarPorCif("22222222B"), 
+				iEmpleado.buscarPorId(3));
+		
+		Proyecto proyecto7 = new Proyecto("Proy7", 
+				new BigDecimal(1200000), 
+				"Descripción proyecto7", 
+				"Finalizado", 
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/05/17"),
+				new SimpleDateFormat("yyyy/MM/dd").parse("2021/01/17"),
+				new BigDecimal(2500000), 
+				iCliente.buscarPorCif("22222222B"), 
+				iEmpleado.buscarPorId(3));
 		
 		listaProyectos.add(proyecto1);
 		listaProyectos.add(proyecto2);
 		listaProyectos.add(proyecto3);
 		listaProyectos.add(proyecto4);
+		listaProyectos.add(proyecto5);
+		listaProyectos.add(proyecto6);
+		listaProyectos.add(proyecto7);
 	}
 	
 	@Override

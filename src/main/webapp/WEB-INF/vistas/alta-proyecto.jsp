@@ -83,8 +83,7 @@
 <!-- 		</p> -->
 		<p><input type="submit" value="Crear proyecto" id="boton"></p>
 	</form>		
-	
-	
+
 	<div class="opcion">
 		<div>
 			Volver al <a href="/gestion">inicio</a>

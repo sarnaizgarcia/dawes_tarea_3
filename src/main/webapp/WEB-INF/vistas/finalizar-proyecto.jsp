@@ -47,15 +47,15 @@
 		<p>Bienvenid@, ${empleado.getNombre() }</p>
 	</div>
 		
-	<form action="finalizarProyecto" method="post">
+	<form action="terminarProyecto" method="post">
 		<p>
 			<p>Coste real</p>
 			<input type="text" name="costeReal" >
 		</p>
-		<p>
-			<p>Fecha de fin</p>
-			<input type="date" name="fechaFinReal">
-		</p>
+<!-- 		<p> -->
+<!-- 			<p>Fecha de fin</p> -->
+<!-- 			<input type="date" name="fechaFinReal"> -->
+<!-- 		</p> -->
 		<p><input type="submit" value="Finalizar" id="boton"></p>
 	</form>		
 	

@@ -2,6 +2,7 @@ package dawes.silvia.t3.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -36,7 +37,7 @@ public class ControlGestion {
 	private EmpleadoInt listaEmpleados;
 	
 	@GetMapping("")
-	public String inicioGestion(HttpSession sesion, Model model) {
+	public String inicioGestion(Model model) {
 		model.addAttribute("listaProyectos", listaProyectos.buscarTodos());
 		return "inicio-gestion";
 	}
@@ -58,7 +59,7 @@ public class ControlGestion {
 	@GetMapping("/terminarProyecto/{id}")
 	public String vistaFinalizarProyecto(@PathVariable("id") String idProyecto, Model model) {
 		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);
-		model.addAttribute("proyectoAFinalizar", proyectoAFinalizar);
+//		model.addAttribute("proyectoAFinalizar", proyectoAFinalizar);
 		return "finalizar-proyecto";
 	}
 	
@@ -70,11 +71,13 @@ public class ControlGestion {
 	}
 	
 	@PostMapping("/terminarProyecto/{id}")
-	public String finalizarProyecto(Proyecto proyecto, @PathVariable("id") String idProyecto,
+	public String terminarProyecto(Model model, Proyecto proyecto, @PathVariable(name = "id") String idProyecto,
 			@DateTimeFormat(pattern="yyyy/MM/dd") Date endTime) {
-		Proyecto proyectoAFinalizar = listaProyectos.buscarPorId(idProyecto);
-		proyectoAFinalizar.setEstado("Finalizado");
-		return "redirect:/";
+//		Proyecto proyectoAFinalizar = model.getAttribute("proyectoAFinalizar");
+//		String id = proyectoAFinalizar.getIdProyecto();
+//		System.out.println(id);
+//
+		return "redirect:/gestion";
 	}
 	
 }
